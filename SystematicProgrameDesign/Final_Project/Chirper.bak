@@ -1,0 +1,19 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-advanced-reader.ss" "lang")((modname Chirper) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f () #f)))
+;; Problem 1 of the Final Project for How To Code: Complex Data
+;; "Chirper"
+
+;; Data Definitions:
+
+(define-struct user (name verified? following))
+;; User is (make-user String Boolean listOf(user))
+;; Interp A user is ("his name" "Whether or not they verified"
+;;                   "a list of other useres that he follows")
+(define user1 (make-user "Hayam" true empty))
+(define user2 (make-user "Karem" false (list user1)))
+(define user3 (make-user "Nesma" true (list user1 user2)))
+(define user3 (make-user "Amr"   false (list user3 user1)))
+  
+;; I'm confuded whether or not the data is arb-arit or graph but it
+;; seems like a graph
